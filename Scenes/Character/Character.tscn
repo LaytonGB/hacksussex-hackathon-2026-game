@@ -390,6 +390,16 @@ HEADBOB_ANIMATION = NodePath("Head/HeadbobAnimation")
 JUMP_ANIMATION = NodePath("Head/JumpAnimation")
 CROUCH_ANIMATION = NodePath("CrouchAnimation")
 COLLISION_MESH = NodePath("Collision")
+controls = {
+&"BACKWARD": "move_down",
+&"CROUCH": "crouch",
+&"FORWARD": "move_up",
+&"JUMP": "ui_accept",
+&"LEFT": "move_left",
+&"PAUSE": "ui_cancel",
+&"RIGHT": "move_right",
+&"SPRINT": "sprint"
+}
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=544888690]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
