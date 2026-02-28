@@ -2,6 +2,9 @@ extends Node
 class_name CharacterStateGlobal
 
 
+signal state_change(new_state: State, prev_state: State)
+
+
 enum State {
 	STATIONARY,
 	WALKING,
@@ -11,7 +14,10 @@ enum State {
 }
 
 
-var state := State.STATIONARY
+var state := State.STATIONARY:
+	set(value):
+		state_change.emit(value, state)
+		state = value
 
 
 @onready var _character: Character = get_tree().root.find_child("Character")
