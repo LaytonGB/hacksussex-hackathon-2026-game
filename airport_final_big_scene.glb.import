@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/airport_final_big_scene.glb-b3ce72dc1f5e8aeb9
 
 [params]
 
-nodes/root_type="XRNode3D"
+nodes/root_type="Node3D"
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
