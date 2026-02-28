@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hacksussex Hackathon 2026 Game"
-run/main_scene="uid://cs4drhmc1bql5"
+run/main_scene="uid://c4wvmyekfocxx"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
