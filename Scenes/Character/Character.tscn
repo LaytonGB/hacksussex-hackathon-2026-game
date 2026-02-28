@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://dv3pyqk5qyiua" path="res://Scenes/Character/debug.gd" id="2_wn3yd"]
 [ext_resource type="Script" uid="uid://58a2yc4ymbpt" path="res://Scenes/Character/editor_module.gd" id="3_v2un5"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uy03j"]
+radius = 0.3
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
 clearcoat_enabled = true
@@ -13,16 +16,13 @@ clearcoat_roughness = 0.2
 material = SubResource("StandardMaterial3D_kp17n")
 radius = 0.3
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uy03j"]
-radius = 0.3
-
 [sub_resource type="Animation" id="Animation_j8cx7"]
 resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:position")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Character/Mesh:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,7 +46,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head:position")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character/Head:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -58,7 +58,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Mesh:mesh:height")
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Character/Mesh:mesh:height")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -86,7 +86,7 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mesh:position")
+tracks/0/path = NodePath("SubViewportContainer/SubViewport/Character/Mesh:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -110,7 +110,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Head:position")
+tracks/2/path = NodePath("SubViewportContainer/SubViewport/Character/Head:position")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -122,7 +122,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Mesh:mesh:height")
+tracks/3/path = NodePath("SubViewportContainer/SubViewport/Character/Mesh:mesh:height")
 tracks/3/interp = 2
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -383,7 +383,6 @@ MarginContainer/constants/margin_top = 10
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
 
 [node name="Character" type="CharacterBody3D" unique_id=1649781424 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_syf7y")
 default_reticle = "uid://coqpusufa8a6k"
 HEAD = NodePath("Head")
@@ -403,21 +402,20 @@ controls = {
 &"SPRINT": "sprint"
 }
 
-[node name="Mesh" type="MeshInstance3D" parent="." unique_id=544888690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_jw1de")
-
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1761193985]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("CapsuleShape3D_uy03j")
 
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=544888690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_jw1de")
+
 [node name="CrouchAnimation" type="AnimationPlayer" parent="." unique_id=1292394134]
+root_node = NodePath("../../../..")
 libraries/ = SubResource("AnimationLibrary_5e5t5")
 
 [node name="Head" type="Node3D" parent="." unique_id=427533049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-
-[node name="Camera" type="Camera3D" parent="Head" unique_id=371502631]
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head" unique_id=1190077651]
 libraries/ = SubResource("AnimationLibrary_o0unb")
@@ -426,6 +424,8 @@ blend_times = [&"RESET", &"RESET", 0.5, &"RESET", &"walk", 0.5, &"walk", &"RESET
 [node name="JumpAnimation" type="AnimationPlayer" parent="Head" unique_id=1878100311]
 libraries/ = SubResource("AnimationLibrary_qeg5r")
 speed_scale = 4.0
+
+[node name="Camera" type="Camera3D" parent="Head" unique_id=371502631]
 
 [node name="UserInterface" type="Control" parent="." unique_id=903793681]
 layout_mode = 3

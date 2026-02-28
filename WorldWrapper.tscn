@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c4wvmyekfocxx"]
+
+[ext_resource type="Script" uid="uid://d0annrnk0oja7" path="res://Scenes/Character/character_container.gd" id="1_f8wa7"]
+[ext_resource type="PackedScene" uid="uid://dtsiadx7f3mo0" path="res://test_world.tscn" id="2_5v3dv"]
+
+[node name="WorldWrapper" type="SubViewportContainer" unique_id=442417416]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+stretch_shrink = 3
+script = ExtResource("1_f8wa7")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=43059303]
+handle_input_locally = false
+size = Vector2i(384, 216)
+render_target_update_mode = 4
+
+[node name="test_world" parent="SubViewport" unique_id=1987311733 instance=ExtResource("2_5v3dv")]
+unique_name_in_owner = true

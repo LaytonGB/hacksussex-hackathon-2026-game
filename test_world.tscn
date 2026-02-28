@@ -1,6 +1,7 @@
-[gd_scene format=3 uid="uid://cs4drhmc1bql5"]
+[gd_scene format=3 uid="uid://dtsiadx7f3mo0"]
 
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://Scenes/Character/Character.tscn" id="1_e18vq"]
+[ext_resource type="Script" uid="uid://bm3riq8s0j1oh" path="res://test_world.gd" id="1_gy3sr"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_edcox"]
 ground_color = Color(0.160784, 0.815686, 0.905882, 1)
@@ -54,7 +55,9 @@ roughness = 0.5
 uv1_triplanar = true
 uv1_triplanar_sharpness = 0.000850145
 
-[node name="test_world" type="Node3D" unique_id=1987311733]
+[node name="test_world" type="Node3D" unique_id=1987311733 node_paths=PackedStringArray("character")]
+script = ExtResource("1_gy3sr")
+character = NodePath("Character")
 
 [node name="Character" parent="." unique_id=1649781424 instance=ExtResource("1_e18vq")]
 
