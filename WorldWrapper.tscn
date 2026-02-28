@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://d0annrnk0oja7" path="res://Scenes/Character/character_container.gd" id="1_f8wa7"]
 [ext_resource type="PackedScene" uid="uid://dtsiadx7f3mo0" path="res://test_world.tscn" id="2_5v3dv"]
+[ext_resource type="Script" uid="uid://btgo5mchl3eih" path="res://ui_left_hand_video_manager.gd" id="3_5v3dv"]
+[ext_resource type="VideoStream" uid="uid://bufpdkexrgnlj" path="res://Assets/walk.ogv" id="4_klm1y"]
+[ext_resource type="VideoStream" uid="uid://denock1nvltuv" path="res://Assets/run.ogv" id="5_323nq"]
+[ext_resource type="VideoStream" uid="uid://caaly8y4s6uer" path="res://Assets/pull.ogv" id="6_bd44u"]
 
 [node name="WorldWrapper" type="SubViewportContainer" unique_id=442417416]
 texture_filter = 1
@@ -21,3 +25,12 @@ render_target_update_mode = 4
 
 [node name="test_world" parent="SubViewport" unique_id=1987311733 instance=ExtResource("2_5v3dv")]
 unique_name_in_owner = true
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=653567970]
+layout_mode = 2
+script = ExtResource("3_5v3dv")
+_vid_stationary = ExtResource("4_klm1y")
+_vid_walk = ExtResource("4_klm1y")
+_vid_crouch = ExtResource("4_klm1y")
+_vid_sprint = ExtResource("5_323nq")
+_vid_jump = ExtResource("6_bd44u")
