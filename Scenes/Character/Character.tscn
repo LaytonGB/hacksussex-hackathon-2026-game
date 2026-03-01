@@ -6,6 +6,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uy03j"]
 radius = 0.3
+height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kp17n"]
 albedo_color = Color(0.909804, 0.596078, 0, 1)
@@ -15,6 +16,7 @@ clearcoat_roughness = 0.2
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jw1de"]
 material = SubResource("StandardMaterial3D_kp17n")
 radius = 0.3
+height = 1.0
 
 [sub_resource type="Animation" id="Animation_j8cx7"]
 resource_name = "RESET"
@@ -381,9 +383,11 @@ MarginContainer/constants/margin_right = 10
 MarginContainer/constants/margin_top = 10
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_k4wwl"]
+radius = 0.25
 
 [node name="Character" type="CharacterBody3D" unique_id=1649781424 node_paths=PackedStringArray("HEAD", "CAMERA", "HEADBOB_ANIMATION", "JUMP_ANIMATION", "CROUCH_ANIMATION", "COLLISION_MESH")]
 script = ExtResource("1_syf7y")
+mouse_sensitivity = 0.7
 default_reticle = "uid://coqpusufa8a6k"
 HEAD = NodePath("Head")
 CAMERA = NodePath("Head/Camera")
@@ -403,11 +407,11 @@ controls = {
 }
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1761193985]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_uy03j")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=544888690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CapsuleMesh_jw1de")
 
 [node name="CrouchAnimation" type="AnimationPlayer" parent="." unique_id=1292394134]
@@ -415,7 +419,7 @@ root_node = NodePath("../../../..")
 libraries/ = SubResource("AnimationLibrary_5e5t5")
 
 [node name="Head" type="Node3D" parent="." unique_id=427533049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="HeadbobAnimation" type="AnimationPlayer" parent="Head" unique_id=1190077651]
 libraries/ = SubResource("AnimationLibrary_o0unb")
@@ -453,7 +457,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CrouchCeilingDetection" type="ShapeCast3D" parent="." unique_id=367787476]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25915235, 0)
 shape = SubResource("SphereShape3D_k4wwl")
 target_position = Vector3(0, 0.5, 0)
 
