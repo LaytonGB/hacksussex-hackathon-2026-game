@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ckhljydonr7r7"]
+
+[ext_resource type="PackedScene" uid="uid://ccrmfugjs3kua" path="res://Scenes/BasketballArcade/basketball.glb" id="1_t77d0"]
+
+[node name="Basketball" type="Node3D" unique_id=1068665352]
+
+[node name="basketball" parent="." unique_id=1039991580 instance=ExtResource("1_t77d0")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0, 0, 0)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="basketball" unique_id=1375659554]
+visible = false
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="basketball/CSGCombiner3D" unique_id=267942619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.708635, 70.54557, -1.3061523)
+size = Vector3(139.02066, 142.09114, 52.850586)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="basketball/CSGCombiner3D/CSGBox3D" unique_id=113161410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.256416, 38.44571, 3.0856934)
+operation = 2
+size = Vector3(47.944412, 77.891396, 61.634277)
