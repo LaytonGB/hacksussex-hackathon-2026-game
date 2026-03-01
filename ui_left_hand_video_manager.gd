@@ -1,3 +1,4 @@
+@tool
 extends VideoStreamPlayer
 class_name UiLeftHandVideoManager
 
@@ -11,9 +12,13 @@ class_name UiLeftHandVideoManager
 
 func _ready() -> void:
 	CharacterState.state_change.connect(_on_character_state_state_change)
+	self.process_mode = Node.PROCESS_MODE_ALWAYS
 
 
-func _on_character_state_state_change(new_state: CharacterState.State, _prev_state: CharacterState.State) -> void:
+func _on_character_state_state_change(new_state: CharacterState.State, prev_state: CharacterState.State) -> void:
+	if new_state == prev_state:
+		return
+	
 	match new_state:
 		CharacterState.State.STATIONARY:
 			self.stream = _vid_stationary
