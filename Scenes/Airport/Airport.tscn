@@ -18,10 +18,10 @@ ambient_light_energy = 0.5
 size = Vector3(152.85738, 1.0087891, 230.49527)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_armyt"]
-size = Vector3(10.354584, 0.8457031, 69.35254)
+size = Vector3(12.857628, 0.8457031, 69.35254)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_are11"]
-size = Vector3(3.7057052, 0.8457031, 18.874756)
+size = Vector3(3.7057052, 0.8457031, 23.499023)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jbg6g"]
 size = Vector3(12.256555, 0.8457031, 15.884356)
@@ -38,8 +38,14 @@ size = Vector3(34.54331, 0.8457031, 6.2347755)
 [sub_resource type="BoxShape3D" id="BoxShape3D_e558f"]
 size = Vector3(10.574667, 0.8457031, 5.147661)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ok1q"]
+size = Vector3(14.49703, 0.8457031, 6.2347755)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_hn05b"]
 size = Vector3(10.574667, 0.8457031, 5.147661)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_703x4"]
+size = Vector3(14.49703, 0.8457031, 6.2347755)
 
 [node name="Airport" type="Node3D" unique_id=398377077 node_paths=PackedStringArray("character")]
 script = ExtResource("1_oo66o")
@@ -63,7 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.07122, 0.023051023, -41.0
 shape = SubResource("BoxShape3D_cq2x1")
 
 [node name="UpstairsFloorMain" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1208533459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12507, 5.25502, -37.419437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.873548, 5.25502, -37.419437)
 shape = SubResource("BoxShape3D_armyt")
 
 [node name="UpstairsFloorCentralBalcony" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=2040645333]
@@ -90,9 +96,19 @@ shape = SubResource("BoxShape3D_oo66o")
 transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, 2.1598556, 2.5578377, -63.996902)
 shape = SubResource("BoxShape3D_e558f")
 
+[node name="EscalatorLanding" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1759433872]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.672653, 5.25502, -64.019646)
+shape = SubResource("BoxShape3D_8ok1q")
+
 [node name="Escalator2" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=271002551]
 transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, 2.1598556, 2.5578377, -11.240641)
 shape = SubResource("BoxShape3D_hn05b")
+
+[node name="Escalator2Landing" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=971912592]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.672653, 5.25502, -10.889624)
+shape = SubResource("BoxShape3D_703x4")
+
+[node name="Chairs" type="StaticBody3D" parent="CollisionBodies" unique_id=1406817085]
 
 [node name="Coins" type="Node3D" parent="." unique_id=1957362913]
 
