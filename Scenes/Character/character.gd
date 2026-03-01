@@ -157,6 +157,8 @@ func _ready():
 	
 	if OS.get_name() == "Web":
 		Input.set_use_accumulated_input(false)
+	
+	CharacterState.character = self
 
 
 func _process(_delta):

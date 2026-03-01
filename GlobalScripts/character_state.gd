@@ -20,15 +20,15 @@ var state := State.STATIONARY:
 		state = value
 
 
-@onready var _character: Character = get_tree().root.find_child("Character")
+@export var character: Character
 
 
 func _physics_process(_delta: float) -> void:
-	if _character.velocity.is_zero_approx():
+	if character.velocity.is_zero_approx():
 		state = State.STATIONARY
 		return
 	
-	match _character.state:
+	match character.state:
 		"normal":
 			state = State.WALKING
 		"crouching":
