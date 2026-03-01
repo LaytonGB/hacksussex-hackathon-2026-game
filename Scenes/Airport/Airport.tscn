@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://d14vfuau7tx6v"]
+
+[ext_resource type="PackedScene" uid="uid://f8jl6ru54grs" path="res://Scenes/Airport/airport_final_big_scene.glb" id="1_cq2x1"]
+
+[sub_resource type="Environment" id="Environment_are11"]
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_awmiu"]
+
+[sub_resource type="Compositor" id="Compositor_oo66o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cq2x1"]
+size = Vector3(152.85738, 1.0087891, 230.49527)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_armyt"]
+size = Vector3(14.591003, 0.8457031, 69.35254)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_are11"]
+size = Vector3(3.7057052, 0.8457031, 18.874756)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jbg6g"]
+size = Vector3(12.256555, 0.8457031, 15.884356)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2hwu6"]
+size = Vector3(12.206219, 0.8457031, 15.884356)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_awmiu"]
+size = Vector3(34.54331, 0.8457031, 6.2347755)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oo66o"]
+size = Vector3(34.54331, 0.8457031, 6.2347755)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e558f"]
+size = Vector3(10.574667, 0.8457031, 5.147661)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hn05b"]
+size = Vector3(10.574667, 0.8457031, 5.147661)
+
+[node name="Airport" type="Node3D" unique_id=398377077]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1173981922]
+environment = SubResource("Environment_are11")
+camera_attributes = SubResource("CameraAttributesPractical_awmiu")
+compositor = SubResource("Compositor_oo66o")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=606886094]
+
+[node name="airport_model" parent="." unique_id=2072000439 instance=ExtResource("1_cq2x1")]
+
+[node name="CollisionBodies" type="Node3D" parent="." unique_id=1547194973]
+
+[node name="Floors" type="StaticBody3D" parent="CollisionBodies" unique_id=78715420]
+
+[node name="DownstairsFloor" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=664596304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.07122, 0.023051023, -41.019993)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="UpstairsFloorMain" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1208533459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.00686, 5.25502, -37.419437)
+shape = SubResource("BoxShape3D_armyt")
+
+[node name="UpstairsFloorCentralBalcony" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=2040645333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2742121, 5.25502, -37.419437)
+shape = SubResource("BoxShape3D_are11")
+
+[node name="UpstairsFloorUnderBar" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=270268758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3705554, 5.25502, -53.224342)
+shape = SubResource("BoxShape3D_jbg6g")
+
+[node name="UpstairsFloorUnderPlants" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1379071896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2977426, 5.25502, -21.656166)
+shape = SubResource("BoxShape3D_2hwu6")
+
+[node name="UpstairsFloorSide" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1200316754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35048485, 5.25502, -5.4828014)
+shape = SubResource("BoxShape3D_awmiu")
+
+[node name="UpstairsFloorSide2" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=582097577]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35048485, 5.25502, -69.6418)
+shape = SubResource("BoxShape3D_oo66o")
+
+[node name="Escalator" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1559479878]
+transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, 2.1598556, 2.5578377, -63.996902)
+shape = SubResource("BoxShape3D_e558f")
+
+[node name="Escalator2" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=271002551]
+transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, 2.1598556, 2.5578377, -11.240641)
+shape = SubResource("BoxShape3D_hn05b")
+
+[node name="UpstairsSeatsCollision" type="StaticBody3D" parent="CollisionBodies" unique_id=663753220]
+
+[node name="SeatsCollision" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=1442796398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -60.39374)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision2" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=285753757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -58.003258)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision3" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=1341968625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -53.114513)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision4" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=60941619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -55.47519)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision5" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=893245879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -50.77338)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision6" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=508614338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -48.433697)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision7" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=1409537485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -45.949795)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="UpstairsSeatsCollision2" type="StaticBody3D" parent="CollisionBodies" unique_id=190881797]
+
+[node name="SeatsCollision" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1581574396]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -28.852638)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision2" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1934217790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -26.462154)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision3" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1265241808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -21.57341)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision4" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=838660824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -23.934086)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision5" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1392097179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -19.232277)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision6" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=706351638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -16.892593)
+shape = SubResource("BoxShape3D_cq2x1")
+
+[node name="SeatsCollision7" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=2125977098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -14.408691)
+shape = SubResource("BoxShape3D_cq2x1")
