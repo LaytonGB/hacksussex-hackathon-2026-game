@@ -18,6 +18,7 @@ func _process(delta):
 
 func _on_body_entered(body: Node3D) -> void:
 	if body == %Character:
+		Inventory.coins += 1
 		queue_free()
 "
 
@@ -33,7 +34,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_rwqht")
 
 [node name="coin model" parent="." unique_id=1231458789 instance=ExtResource("1_rwqht")]
-transform = Transform3D(0.53758794, 0, 0.8435193, 0, 1, 0, -0.8435193, 0, 0.53758794, 0, 0.5, 0)
+transform = Transform3D(0.8779477, 0, 0.47954288, 0, 1, 0, -0.47954288, 0, 0.8779477, 0, 0.5, 0)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1731668736]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5, 0)
