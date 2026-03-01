@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://d14vfuau7tx6v"]
 
 [ext_resource type="PackedScene" uid="uid://f8jl6ru54grs" path="res://Scenes/Airport/airport_final_big_scene.glb" id="1_cq2x1"]
+[ext_resource type="Script" uid="uid://bdy3uaxlb0e6h" path="res://Scenes/Airport/airport.gd" id="1_oo66o"]
+[ext_resource type="PackedScene" uid="uid://b1u8u8a8ue18a" path="res://scenes/coin.tscn" id="2_are11"]
+[ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://Scenes/Character/Character.tscn" id="3_awmiu"]
 
 [sub_resource type="Environment" id="Environment_are11"]
 ambient_light_source = 3
@@ -15,7 +18,7 @@ ambient_light_energy = 0.5
 size = Vector3(152.85738, 1.0087891, 230.49527)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_armyt"]
-size = Vector3(14.591003, 0.8457031, 69.35254)
+size = Vector3(10.354584, 0.8457031, 69.35254)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_are11"]
 size = Vector3(3.7057052, 0.8457031, 18.874756)
@@ -38,7 +41,9 @@ size = Vector3(10.574667, 0.8457031, 5.147661)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hn05b"]
 size = Vector3(10.574667, 0.8457031, 5.147661)
 
-[node name="Airport" type="Node3D" unique_id=398377077]
+[node name="Airport" type="Node3D" unique_id=398377077 node_paths=PackedStringArray("character")]
+script = ExtResource("1_oo66o")
+character = NodePath("Character")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1173981922]
 environment = SubResource("Environment_are11")
@@ -58,7 +63,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.07122, 0.023051023, -41.0
 shape = SubResource("BoxShape3D_cq2x1")
 
 [node name="UpstairsFloorMain" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=1208533459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.00686, 5.25502, -37.419437)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.12507, 5.25502, -37.419437)
 shape = SubResource("BoxShape3D_armyt")
 
 [node name="UpstairsFloorCentralBalcony" type="CollisionShape3D" parent="CollisionBodies/Floors" unique_id=2040645333]
@@ -89,62 +94,11 @@ shape = SubResource("BoxShape3D_e558f")
 transform = Transform3D(0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 0, 0, 1, 2.1598556, 2.5578377, -11.240641)
 shape = SubResource("BoxShape3D_hn05b")
 
-[node name="UpstairsSeatsCollision" type="StaticBody3D" parent="CollisionBodies" unique_id=663753220]
+[node name="Coins" type="Node3D" parent="." unique_id=1957362913]
 
-[node name="SeatsCollision" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=1442796398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -60.39374)
-shape = SubResource("BoxShape3D_cq2x1")
+[node name="coin" parent="Coins" unique_id=738233174 instance=ExtResource("2_are11")]
+transform = Transform3D(0.75713974, 0, 0.65338165, 0, 1, 0, -0.65338165, 0, 0.75713974, -3.6419356, 5.7005897, -21.827631)
 
-[node name="SeatsCollision2" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=285753757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -58.003258)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision3" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=1341968625]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -53.114513)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision4" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=60941619]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -55.47519)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision5" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=893245879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -50.77338)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision6" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=508614338]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -48.433697)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision7" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision" unique_id=1409537485]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -45.949795)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="UpstairsSeatsCollision2" type="StaticBody3D" parent="CollisionBodies" unique_id=190881797]
-
-[node name="SeatsCollision" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1581574396]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -28.852638)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision2" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1934217790]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -26.462154)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision3" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1265241808]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -21.57341)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision4" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=838660824]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -23.934086)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision5" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=1392097179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -19.232277)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision6" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=706351638]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -16.892593)
-shape = SubResource("BoxShape3D_cq2x1")
-
-[node name="SeatsCollision7" type="CollisionShape3D" parent="CollisionBodies/UpstairsSeatsCollision2" unique_id=2125977098]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.2026615, 6.4753995, -14.408691)
-shape = SubResource("BoxShape3D_cq2x1")
+[node name="Character" parent="." unique_id=1649781424 instance=ExtResource("3_awmiu")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5122738, 6.71496, -23.57925)

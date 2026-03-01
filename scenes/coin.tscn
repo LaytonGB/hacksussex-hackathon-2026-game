@@ -3,28 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://bdqfvik445a27" path="res://assets/models/Coin.glb" id="1_rwqht"]
 
 [sub_resource type="GDScript" id="GDScript_i64fm"]
-script/source = "extends Area3D
+script/source = "@tool
+extends Area3D
 
-#size of the spawn area
-@export var area_width: float = 20.0
-@export var area_depth: float = 20.0
-@export var min_height: float = 0.5
-@export var max_height: float = 0.5
 
 @export var rotate_speed: float = 90.0
 
+@onready var _coin: Node3D = $\"coin model\"
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	randomize() #ensures random positions 
-	position = Vector3(
-		randf_range(-area_width/2, area_width/2),
-		randf_range(min_height, max_height),
-		randf_range(area_depth/2, area_depth/2)		
-	)
-	
+
 func _process(delta):
-	rotate_y(deg_to_rad(rotate_speed)*delta)
+	_coin.rotate_y(deg_to_rad(rotate_speed)*delta)
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body == %Character:
+		Inventory.coins += 1
+		queue_free()
 "
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_rwqht"]
@@ -35,9 +30,15 @@ radius = 0.54785156
 script = SubResource("GDScript_i64fm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=568062846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024974197, -0.0036964417, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_rwqht")
 
 [node name="coin model" parent="." unique_id=1231458789 instance=ExtResource("1_rwqht")]
+transform = Transform3D(0.8779477, 0, 0.47954288, 0, 1, 0, -0.47954288, 0, 0.8779477, 0, 0.5, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1731668736]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5, 0)
+shadow_enabled = true
+spot_angle = 27.137287
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
