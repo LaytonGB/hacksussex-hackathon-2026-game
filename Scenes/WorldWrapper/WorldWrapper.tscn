@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://d0annrnk0oja7" path="res://Scenes/Character/character_container.gd" id="1_f8wa7"]
 [ext_resource type="PackedScene" uid="uid://dtsiadx7f3mo0" path="res://test_world.tscn" id="2_5v3dv"]
-[ext_resource type="Script" uid="uid://btgo5mchl3eih" path="res://ui_left_hand_video_manager.gd" id="3_5v3dv"]
-[ext_resource type="Shader" uid="uid://dbcbch20qoffr" path="res://VideoStreamPlayer.gdshader" id="3_323nq"]
+[ext_resource type="Script" uid="uid://btgo5mchl3eih" path="res://Scenes/WorldWrapper/ui_left_hand_video_manager.gd" id="3_5v3dv"]
+[ext_resource type="Shader" uid="uid://dbcbch20qoffr" path="res://Scenes/WorldWrapper/VideoStreamPlayer.gdshader" id="3_323nq"]
 [ext_resource type="VideoStream" uid="uid://bufpdkexrgnlj" path="res://Assets/walk.ogv" id="4_klm1y"]
 [ext_resource type="VideoStream" uid="uid://denock1nvltuv" path="res://Assets/run.ogv" id="5_323nq"]
 [ext_resource type="VideoStream" uid="uid://caaly8y4s6uer" path="res://Assets/pull.ogv" id="6_bd44u"]

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://f8jl6ru54grs"
-path="res://.godot/imported/airport_final_big_scene.glb-b3ce72dc1f5e8aeb99a7f5dbf9eb2494.scn"
+path="res://.godot/imported/airport_final_big_scene.glb-696505aea3fdf7b8412eeacb7add701a.scn"
 
 [deps]
 
-source_file="res://airport_final_big_scene.glb"
-dest_files=["res://.godot/imported/airport_final_big_scene.glb-b3ce72dc1f5e8aeb99a7f5dbf9eb2494.scn"]
+source_file="res://Scenes/Airport/airport_final_big_scene.glb"
+dest_files=["res://.godot/imported/airport_final_big_scene.glb-696505aea3fdf7b8412eeacb7add701a.scn"]
 
 [params]
 
