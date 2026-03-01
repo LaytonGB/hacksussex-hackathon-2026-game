@@ -1,6 +1,6 @@
 extends SubViewportContainer
 
-@onready var test_world: TestWorld = %test_world
+@onready var airport: Airport = %Airport
 
 var keep_pointer_centered := true :
 	set(value):
@@ -15,4 +15,4 @@ func _unhandled_input(event: InputEvent) -> void:
 		keep_pointer_centered = !keep_pointer_centered
 		return
 	
-	test_world.character._unhandled_input(event)
+	airport.character._unhandled_input(event)

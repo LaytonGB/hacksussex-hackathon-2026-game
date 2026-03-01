@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://c4wvmyekfocxx"]
 
 [ext_resource type="Script" uid="uid://d0annrnk0oja7" path="res://Scenes/Character/character_container.gd" id="1_f8wa7"]
-[ext_resource type="PackedScene" uid="uid://dtsiadx7f3mo0" path="res://test_world.tscn" id="2_5v3dv"]
+[ext_resource type="PackedScene" uid="uid://d14vfuau7tx6v" path="res://Scenes/Airport/Airport.tscn" id="2_0e6gw"]
 [ext_resource type="Script" uid="uid://btgo5mchl3eih" path="res://Scenes/WorldWrapper/ui_left_hand_video_manager.gd" id="3_5v3dv"]
 [ext_resource type="Shader" uid="uid://dbcbch20qoffr" path="res://Scenes/WorldWrapper/VideoStreamPlayer.gdshader" id="3_323nq"]
 [ext_resource type="VideoStream" uid="uid://bufpdkexrgnlj" path="res://Assets/walk.ogv" id="4_klm1y"]
 [ext_resource type="VideoStream" uid="uid://denock1nvltuv" path="res://Assets/run.ogv" id="5_323nq"]
 [ext_resource type="VideoStream" uid="uid://caaly8y4s6uer" path="res://Assets/pull.ogv" id="6_bd44u"]
+[ext_resource type="Script" uid="uid://dc1oqwyv1al2d" path="res://Scenes/WorldWrapper/coins.gd" id="8_0e6gw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bd44u"]
 shader = ExtResource("3_323nq")
@@ -38,7 +39,7 @@ handle_input_locally = false
 size = Vector2i(384, 216)
 render_target_update_mode = 4
 
-[node name="test_world" parent="WorldWrapper/SubViewport" unique_id=1987311733 instance=ExtResource("2_5v3dv")]
+[node name="Airport" parent="WorldWrapper/SubViewport" unique_id=398377077 instance=ExtResource("2_0e6gw")]
 unique_name_in_owner = true
 
 [node name="LeftHand" type="VideoStreamPlayer" parent="." unique_id=653567970]
@@ -84,3 +85,11 @@ _vid_walk = ExtResource("4_klm1y")
 _vid_crouch = ExtResource("4_klm1y")
 _vid_sprint = ExtResource("5_323nq")
 _vid_jump = ExtResource("6_bd44u")
+
+[node name="Coins" type="Label" parent="." unique_id=2072177625]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 26
+text = "Coins: 0"
+script = ExtResource("8_0e6gw")

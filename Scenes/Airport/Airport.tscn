@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d14vfuau7tx6v"]
 
 [ext_resource type="PackedScene" uid="uid://f8jl6ru54grs" path="res://Scenes/Airport/airport_final_big_scene.glb" id="1_cq2x1"]
+[ext_resource type="Script" uid="uid://bdy3uaxlb0e6h" path="res://Scenes/Airport/airport.gd" id="1_oo66o"]
 [ext_resource type="PackedScene" uid="uid://b1u8u8a8ue18a" path="res://scenes/coin.tscn" id="2_are11"]
 [ext_resource type="PackedScene" uid="uid://cc1m2a1obsyn4" path="res://Scenes/Character/Character.tscn" id="3_awmiu"]
 
@@ -40,7 +41,9 @@ size = Vector3(10.574667, 0.8457031, 5.147661)
 [sub_resource type="BoxShape3D" id="BoxShape3D_hn05b"]
 size = Vector3(10.574667, 0.8457031, 5.147661)
 
-[node name="Airport" type="Node3D" unique_id=398377077]
+[node name="Airport" type="Node3D" unique_id=398377077 node_paths=PackedStringArray("character")]
+script = ExtResource("1_oo66o")
+character = NodePath("Character")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1173981922]
 environment = SubResource("Environment_are11")
