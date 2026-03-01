@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1u8u8a8ue18a"]
 
-[ext_resource type="PackedScene" uid="uid://bdqfvik445a27" path="res://assets/Coin.glb" id="1_rwqht"]
+[ext_resource type="PackedScene" uid="uid://bdqfvik445a27" path="res://assets/models/Coin.glb" id="1_rwqht"]
 
 [sub_resource type="GDScript" id="GDScript_i64fm"]
 script/source = "extends Area3D
@@ -30,17 +30,18 @@ func _on_body_entered(_body):
 	queue_free() 
 "
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_11l1o"]
-size = Vector3(1.0180664, 1.1292725, 1)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rwqht"]
+height = 0.8808365
+radius = 0.54785156
 
 [node name="coin" type="Area3D" unique_id=738233174]
 script = SubResource("GDScript_i64fm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=568062846]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024974197, 0.04852295, 0)
-shape = SubResource("BoxShape3D_11l1o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024974197, -0.0036964417, 0)
+shape = SubResource("CylinderShape3D_rwqht")
 
-[node name="coin model" parent="." unique_id=554345152 instance=ExtResource("1_rwqht")]
+[node name="coin model" parent="." unique_id=1231458789 instance=ExtResource("1_rwqht")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.006465018, 0, -0.12546921)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
