@@ -24,6 +24,9 @@ var state := State.STATIONARY:
 
 
 func _physics_process(_delta: float) -> void:
+	if not character:
+		return
+		
 	if character.velocity.is_zero_approx():
 		state = State.STATIONARY
 		return

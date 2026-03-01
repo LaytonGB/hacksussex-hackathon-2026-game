@@ -3,4 +3,4 @@ extends Control
 
 
 func _on_play_button_down() -> void:
-	get_tree().change_scene_to_file("res://WorldWrapper.tscn")
+	get_tree().change_scene_to_file("res://Scenes/WorldWrapper/WorldWrapper.tscn")

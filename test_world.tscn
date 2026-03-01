@@ -56,6 +56,8 @@ roughness = 0.5
 uv1_triplanar = true
 uv1_triplanar_sharpness = 0.000850145
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_1lwx6"]
+
 [node name="test_world" type="Node3D" unique_id=1987311733 node_paths=PackedStringArray("character")]
 script = ExtResource("1_gy3sr")
 character = NodePath("Character")
@@ -104,3 +106,13 @@ material = SubResource("StandardMaterial3D_7j4uu")
 
 [node name="Basketball" parent="." unique_id=1068665352 instance=ExtResource("3_1lwx6")]
 transform = Transform3D(0.0033161142, 0, -0.9999945, 0, 1, 0, 0.9999945, 0, 0.0033161142, 0.62033653, 0, -11.813926)
+
+[node name="Area3D" type="Area3D" parent="Basketball" unique_id=753074924]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32251334, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basketball/Area3D" unique_id=962495894]
+transform = Transform3D(1.7500001, 0, 4.656613e-10, 0, 1.75, 0, -4.656613e-10, 0, 1.7500001, 1.9539185, 2.081546, -0.03902763)
+shape = SubResource("BoxShape3D_1lwx6")
+
+[connection signal="body_entered" from="Basketball/Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="body_exited" from="Basketball/Area3D" to="." method="_on_area_3d_area_exited"]
